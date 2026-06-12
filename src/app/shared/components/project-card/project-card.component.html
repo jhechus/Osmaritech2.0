@@ -1,0 +1,43 @@
+<article class="project-card" [class.project-card--expanded]="expanded">
+  <div class="project-card__top">
+    <div class="project-card__icon-wrap" [style.background]="'rgba(' + hexToRgb(project.accentColor) + ', 0.12)'">
+      <span class="project-card__icon" [style.color]="project.accentColor">{{ project.icon }}</span>
+    </div>
+    <div class="project-card__header">
+      <span class="project-card__category badge" [style.background]="'rgba(' + hexToRgb(project.accentColor) + ', 0.12)'" [style.color]="project.accentColor" [style.border-color]="'rgba(' + hexToRgb(project.accentColor) + ', 0.25)'">
+        {{ project.category }}
+      </span>
+      <h3 class="project-card__name">{{ project.name }}</h3>
+      <p class="project-card__type">{{ project.businessType }}</p>
+    </div>
+  </div>
+
+  <div class="project-card__body">
+    <div class="project-card__row">
+      <span class="project-card__label">Situación inicial</span>
+      <p>{{ project.problem }}</p>
+    </div>
+    <div class="project-card__row">
+      <span class="project-card__label project-card__label--accent" [style.color]="project.accentColor">Solución aplicada</span>
+      <p>{{ project.solution }}</p>
+    </div>
+    @if (expanded) {
+      <div class="project-card__row project-card__row--animate">
+        <span class="project-card__label project-card__label--result">Resultado esperado</span>
+        <p>{{ project.result }}</p>
+      </div>
+    }
+  </div>
+
+  <div class="project-card__footer">
+    <div class="project-card__tags">
+      @for (service of project.services; track service) {
+        <span class="project-card__tag">{{ service }}</span>
+      }
+    </div>
+    <button class="project-card__toggle" (click)="toggle()">
+      {{ expanded ? 'Ver menos' : 'Ver resultado' }}
+      <span [class.rotated]="expanded">↓</span>
+    </button>
+  </div>
+</article>

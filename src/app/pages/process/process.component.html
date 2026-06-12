@@ -1,0 +1,110 @@
+<!-- Page Hero -->
+<section class="page-hero">
+  <div class="grid-bg"></div>
+  <div class="orb orb--cyan" style="width:400px;height:400px;right:-100px;top:-50px;opacity:0.12"></div>
+  <div class="orb orb--violet" style="width:300px;height:300px;left:-80px;bottom:0;opacity:0.1"></div>
+  <div class="container">
+    <div class="page-hero__inner">
+      <span class="badge badge--cyan">Proceso</span>
+      <h1 class="page-hero__title">
+        Así trabajamos
+        <span class="gradient-text"> juntos</span>
+      </h1>
+      <p class="page-hero__sub">
+        Sin procesos confusos, sin tecnicismos innecesarios. Te explico cada paso para que sepas exactamente qué está pasando con tu proyecto.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Steps -->
+<section class="section process-section">
+  <div class="container">
+    <div class="process-layout">
+      <div class="process-steps reveal">
+        <app-section-title
+          badge="Etapas del proyecto"
+          headline="De la idea a la"
+          accentWord="publicación"
+          subheading="Cada proyecto avanza por estas etapas, con comunicación clara en todo momento."
+        ></app-section-title>
+
+        <div class="steps-list">
+          @for (step of steps; track step.number; let last = $last) {
+            <app-process-step [step]="step" [isLast]="last"></app-process-step>
+          }
+        </div>
+      </div>
+
+      <div class="process-sidebar">
+        <div class="trust-card reveal reveal--right">
+          <div class="trust-card__header">
+            <span class="trust-card__icon">◆</span>
+            <h3 class="trust-card__title">Lo que puedes esperar trabajando con Osmaritech</h3>
+          </div>
+          <ul class="trust-list">
+            @for (point of trustPoints; track point.text) {
+              <li class="trust-item">
+                <span class="trust-item__icon">{{ point.icon }}</span>
+                <span>{{ point.text }}</span>
+              </li>
+            }
+          </ul>
+        </div>
+
+        <div class="timeline-card reveal reveal--right reveal--delay-2">
+          <h4 class="timeline-card__title">¿Cuánto tarda un proyecto?</h4>
+          <p>Depende del alcance. Una landing page o página informativa avanza por etapas después de alinear estructura, contenido y diseño.</p>
+          <p class="mt-sm">Lo más importante es que el resultado funcione bien, no que sea rápido a costa de calidad.</p>
+          <a routerLink="/contacto" class="btn btn--primary mt-md" style="width:100%;justify-content:center">
+            Cotizar mi proyecto
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Trust section -->
+<section class="section section--deep commitment-section">
+  <div class="grid-bg"></div>
+  <div class="container">
+    <app-section-title
+      badge="Compromiso"
+      headline="Tu proyecto no es un"
+      accentWord="experimento"
+      subheading="Cada decisión en el diseño, desarrollo y publicación tiene un propósito claro para tu negocio."
+      [center]="true"
+    ></app-section-title>
+
+    <div class="commitment-grid">
+      <div class="commitment-item reveal reveal--delay-1">
+        <div class="commitment-item__num">01</div>
+        <h3>Diagnóstico antes de diseñar</h3>
+        <p>Entender tu negocio, tus clientes y tu objetivo antes de tomar decisiones de diseño o estructura.</p>
+      </div>
+      <div class="commitment-item reveal reveal--delay-2">
+        <div class="commitment-item__num">02</div>
+        <h3>Diseño con intención comercial</h3>
+        <p>Cada elemento visual sirve para algo: generar confianza, explicar un servicio o llevar al visitante a contactarte.</p>
+      </div>
+      <div class="commitment-item reveal reveal--delay-3">
+        <div class="commitment-item__num">03</div>
+        <h3>Código preparado para crecer</h3>
+        <p>No construimos algo que tengas que tirar en un año. El sitio puede mejorar y escalar contigo.</p>
+      </div>
+      <div class="commitment-item reveal reveal--delay-4">
+        <div class="commitment-item__num">04</div>
+        <h3>Soporte después de publicar</h3>
+        <p>Publicar no es el final. Si algo necesita ajuste o quieres mejorar algo, hay opciones para seguir contando con soporte.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<app-cta-section
+  headline="¿Listo para empezar tu proyecto?"
+  subheadline="Cuéntame qué necesitas y comienzo con el diagnóstico inicial sin costo."
+  primaryLabel="Iniciar proceso"
+  secondaryLabel="Ver servicios"
+></app-cta-section>

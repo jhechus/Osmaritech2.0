@@ -1,0 +1,74 @@
+<!-- Page Hero -->
+<section class="page-hero">
+  <div class="grid-bg"></div>
+  <div class="orb orb--violet" style="width:500px;height:500px;left:-150px;top:-100px;opacity:0.12"></div>
+  <div class="orb orb--cyan" style="width:400px;height:400px;right:-100px;bottom:-50px;opacity:0.1"></div>
+  <div class="container">
+    <div class="page-hero__inner">
+      <span class="badge badge--violet">Paquetes</span>
+      <h1 class="page-hero__title">
+        Soluciones claras para
+        <span class="gradient-text"> cada momento de tu negocio</span>
+      </h1>
+      <p class="page-hero__sub">
+        Sin costos ocultos, sin procesos complicados. Elige el paquete que encaja con lo que tu negocio necesita hoy y cotiza según el alcance real de tu proyecto.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Packages Grid -->
+<section class="section packages-section">
+  <div class="container">
+    <div class="packages-grid">
+      @for (pkg of packages; track pkg.id; let i = $index) {
+        <div class="reveal" [class]="'reveal--delay-' + (i + 1)">
+          <app-package-card [pkg]="pkg"></app-package-card>
+        </div>
+      }
+    </div>
+
+    <div class="packages-note reveal">
+      <span class="mono-tag">// nota sobre precios</span>
+      <p>Los precios se definen según el alcance, funcionalidades y tiempo del proyecto. Puedes cotizar sin compromiso y te explico cuánto costaría tu caso específico.</p>
+      <a routerLink="/contacto" class="btn btn--primary">Solicitar cotización</a>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section section--deep faq-section">
+  <div class="grid-bg"></div>
+  <div class="container">
+    <app-section-title
+      badge="Preguntas frecuentes"
+      headline="Lo que más me"
+      accentWord="preguntan"
+      subheading="Si tienes alguna duda que no aparece aquí, escríbeme directamente."
+      [center]="true"
+    ></app-section-title>
+
+    <div class="faq-list">
+      @for (faq of faqs; track faq.question; let i = $index) {
+        <div class="faq-item reveal" [class.faq-item--open]="openFaq === i">
+          <button class="faq-item__question" (click)="toggleFaq(i)" [attr.aria-expanded]="openFaq === i">
+            <span>{{ faq.question }}</span>
+            <span class="faq-item__icon">{{ openFaq === i ? '−' : '+' }}</span>
+          </button>
+          @if (openFaq === i) {
+            <div class="faq-item__answer">
+              <p>{{ faq.answer }}</p>
+            </div>
+          }
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<app-cta-section
+  headline="¿Tienes dudas sobre qué paquete necesitas?"
+  subheadline="Cuéntame tu situación y te oriento sin compromiso sobre cuál tiene más sentido para tu negocio."
+  primaryLabel="Hablemos sin compromiso"
+  [showSecondary]="false"
+></app-cta-section>

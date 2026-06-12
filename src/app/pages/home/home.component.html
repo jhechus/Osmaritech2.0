@@ -1,0 +1,291 @@
+<!-- ═══════════════ HERO ═══════════════ -->
+<section class="hero">
+  <div class="hero__bg">
+    <div class="grid-bg"></div>
+    <div class="orb orb--cyan hero__orb hero__orb--1"></div>
+    <div class="orb orb--violet hero__orb hero__orb--2"></div>
+    <div class="orb orb--mint hero__orb hero__orb--3"></div>
+    <div class="hero__scan-line"></div>
+  </div>
+
+  <div class="container">
+    <div class="hero__inner">
+      <div class="hero__content">
+        <div class="hero__eyebrow">
+          <span class="badge badge--cyan">
+            <span>◎</span> Desarrollo web profesional
+          </span>
+        </div>
+
+        <h1 class="hero__title">
+          Tu negocio merece una
+          <span class="gradient-text"> presencia digital</span>
+          que se vea profesional y funcione de verdad.
+        </h1>
+
+        <p class="hero__subtitle">
+          En Osmaritech creamos páginas web, landing pages y sistemas personalizados para negocios que quieren generar confianza, explicar mejor sus servicios y facilitar el contacto con sus clientes.
+        </p>
+
+        <div class="hero__actions">
+          <a routerLink="/contacto" class="btn btn--primary btn--lg">
+            Cotizar mi proyecto
+          </a>
+          <a routerLink="/servicios" class="btn btn--secondary btn--lg">
+            Ver servicios
+          </a>
+        </div>
+
+        <div class="hero__tags">
+          @for (tag of techTags; track tag) {
+            <span class="hero__tag">
+              <span class="hero__tag-dot">◆</span>{{ tag }}
+            </span>
+          }
+        </div>
+      </div>
+
+      <div class="hero__visual">
+        <div class="hero__device">
+          <div class="hero__browser">
+            <div class="hero__browser-bar">
+              <span class="hero__dot hero__dot--red"></span>
+              <span class="hero__dot hero__dot--yellow"></span>
+              <span class="hero__dot hero__dot--green"></span>
+              <div class="hero__url-bar">
+                <span class="hero__url-lock">🔒</span>
+                <span class="hero__url-text">osmaritech.com</span>
+              </div>
+            </div>
+            <div class="hero__screen">
+              <div class="hero__screen-hero">
+                <div class="hero__screen-badge"></div>
+                <div class="hero__screen-title"></div>
+                <div class="hero__screen-subtitle"></div>
+                <div class="hero__screen-btn"></div>
+              </div>
+              <div class="hero__screen-cards">
+                <div class="hero__screen-card hero__screen-card--1"></div>
+                <div class="hero__screen-card hero__screen-card--2"></div>
+                <div class="hero__screen-card hero__screen-card--3"></div>
+              </div>
+            </div>
+          </div>
+          <div class="hero__mobile-device">
+            <div class="hero__mobile-screen">
+              <div class="hero__mobile-line"></div>
+              <div class="hero__mobile-line hero__mobile-line--short"></div>
+              <div class="hero__mobile-btn"></div>
+            </div>
+          </div>
+          <div class="hero__floating-badge hero__floating-badge--1">
+            <span>◆</span> SEO listo
+          </div>
+          <div class="hero__floating-badge hero__floating-badge--2">
+            <span>◆</span> Responsivo
+          </div>
+          <div class="hero__floating-badge hero__floating-badge--3">
+            ✓ SSL activo
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stats -->
+    <div class="hero__stats">
+      @for (stat of stats; track stat.value) {
+        <div class="hero__stat">
+          <span class="hero__stat-value">{{ stat.value }}</span>
+          <span class="hero__stat-label">{{ stat.label }}</span>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ PROBLEMA ═══════════════ -->
+<section class="section problem-section">
+  <div class="container">
+    <div class="problem__inner reveal">
+      <div class="problem__text">
+        <span class="mono-tag">// la realidad</span>
+        <h2 class="problem__title">
+          Si un cliente te busca en internet, tu página habla antes de que tú lo hagas.
+        </h2>
+        <p>
+          Muchos clientes revisan tu negocio antes de escribirte. Si no encuentran una página clara, profesional y fácil de entender, pueden irse sin contactarte — sin que te des cuenta.
+        </p>
+        <p class="mt-sm">
+          No se trata solo de tener una página web. Se trata de tener una presencia digital que hable bien de tu negocio antes de que un cliente te escriba.
+        </p>
+        <a routerLink="/contacto" class="btn btn--primary mt-md">Quiero mejorar mi presencia</a>
+      </div>
+      <div class="problem__visual">
+        <div class="problem__cards">
+          <div class="problem__card problem__card--bad">
+            <div class="problem__card-icon">✗</div>
+            <p class="problem__card-text">Información dispersa entre redes y mensajes</p>
+          </div>
+          <div class="problem__card problem__card--bad">
+            <div class="problem__card-icon">✗</div>
+            <p class="problem__card-text">Sin lugar formal para explicar tus servicios</p>
+          </div>
+          <div class="problem__card problem__card--bad">
+            <div class="problem__card-icon">✗</div>
+            <p class="problem__card-text">Clientes que se van sin preguntar</p>
+          </div>
+          <div class="problem__card problem__card--good">
+            <div class="problem__card-icon">✓</div>
+            <p class="problem__card-text">Página profesional que genera confianza 24/7</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ BENEFICIOS ═══════════════ -->
+<section class="section section--light benefits-section">
+  <div class="grid-bg"></div>
+  <div class="container">
+    <app-section-title
+      badge="¿Por qué importa?"
+      headline="Lo que cambia cuando tienes una página"
+      accentWord="profesional"
+      subheading="Una buena página no solo muestra información: ordena tu mensaje, resuelve dudas y hace más fácil que te contacten."
+      [center]="true"
+    ></app-section-title>
+
+    <div class="benefits-grid">
+      @for (benefit of benefits; track benefit.title; let i = $index) {
+        <div class="benefit-card reveal" [class]="'reveal--delay-' + (i + 1)">
+          <div class="benefit-card__icon">{{ benefit.icon }}</div>
+          <h3 class="benefit-card__title">{{ benefit.title }}</h3>
+          <p class="benefit-card__desc">{{ benefit.description }}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ SERVICIOS ═══════════════ -->
+<section class="section services-section">
+  <div class="container">
+    <app-section-title
+      badge="Servicios"
+      headline="¿Qué necesita tu negocio"
+      accentWord="hoy?"
+      subheading="Desde una landing simple hasta un sistema personalizado. Cada solución está pensada para que tu negocio se vea y funcione mejor en internet."
+    ></app-section-title>
+
+    <div class="services-grid">
+      @for (service of featuredServices; track service.id; let i = $index) {
+        <div class="reveal" [class]="'reveal--delay-' + (i + 1)">
+          <app-service-card [service]="service" [compact]="true"></app-service-card>
+        </div>
+      }
+    </div>
+
+    <div class="services-cta reveal">
+      <a routerLink="/servicios" class="btn btn--secondary btn--lg">
+        Ver todos los servicios →
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ PAQUETES ═══════════════ -->
+<section class="section section--deep packages-section">
+  <div class="grid-bg"></div>
+  <div class="container">
+    <app-section-title
+      badge="Paquetes"
+      headline="Opciones pensadas para"
+      accentWord="negocios reales"
+      subheading="Sin costos ocultos ni procesos complicados. Cotiza según lo que realmente necesita tu negocio."
+      [center]="true"
+    ></app-section-title>
+
+    <div class="packages-grid">
+      @for (pkg of packages; track pkg.id; let i = $index) {
+        <div class="reveal" [class]="'reveal--delay-' + (i + 1)">
+          <app-package-card [pkg]="pkg"></app-package-card>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ PROCESO ═══════════════ -->
+<section class="section section--light process-section">
+  <div class="container">
+    <div class="process-preview">
+      <div class="process-preview__left reveal reveal--left">
+        <app-section-title
+          badge="Proceso"
+          headline="Así trabajamos"
+          accentWord="juntos"
+          subheading="Sin complicaciones técnicas de tu parte. Te explico cada paso y tendrás visibilidad de todo el proceso."
+        ></app-section-title>
+        <div class="process-steps-mini">
+          @for (step of processSteps; track step.number) {
+            <div class="process-mini-step">
+              <span class="process-mini-step__num">{{ step.number }}</span>
+              <span class="process-mini-step__title">{{ step.title }}</span>
+            </div>
+          }
+          <div class="process-mini-step process-mini-step--more">
+            <span class="process-mini-step__num">...</span>
+            <a routerLink="/proceso" class="btn btn--ghost">Ver proceso completo <span class="arrow">→</span></a>
+          </div>
+        </div>
+      </div>
+      <div class="process-preview__right reveal reveal--right">
+        <div class="process-trust-card">
+          <h3 class="process-trust__title">Lo que puedes esperar al trabajar con Osmaritech</h3>
+          <ul class="process-trust__list">
+            <li><span class="process-trust__check">◆</span> Comunicación clara durante todo el proyecto</li>
+            <li><span class="process-trust__check">◆</span> Entregas por etapas para que puedas revisar</li>
+            <li><span class="process-trust__check">◆</span> Revisión y aprobación antes de publicar</li>
+            <li><span class="process-trust__check">◆</span> Sitio preparado para futuras mejoras</li>
+            <li><span class="process-trust__check">◆</span> Sin tecnicismos innecesarios</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ PROYECTOS ═══════════════ -->
+<section class="section projects-section">
+  <div class="container">
+    <app-section-title
+      badge="Proyectos"
+      headline="Ejemplos de lo que se puede"
+      accentWord="lograr"
+      subheading="Casos reales de cómo una página o sistema puede ordenar la presencia digital de un negocio."
+    ></app-section-title>
+
+    <div class="projects-grid">
+      @for (project of projects; track project.id; let i = $index) {
+        <div class="reveal" [class]="'reveal--delay-' + (i + 1)">
+          <app-project-card [project]="project"></app-project-card>
+        </div>
+      }
+    </div>
+
+    <div class="projects-cta reveal">
+      <a routerLink="/proyectos" class="btn btn--secondary btn--lg">
+        Ver todos los proyectos →
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ CTA FINAL ═══════════════ -->
+<app-cta-section
+  headline="¿Tu negocio ya está listo para verse más profesional en internet?"
+  subheadline="Cuéntame qué necesitas y te ayudo a convertirlo en una página, landing o sistema funcional."
+  primaryLabel="Hablemos de tu proyecto"
+  secondaryLabel="Ver servicios"
+></app-cta-section>

@@ -1,0 +1,83 @@
+<!-- Page Hero -->
+<section class="page-hero">
+  <div class="grid-bg"></div>
+  <div class="orb orb--cyan" style="width:400px;height:400px;left:-100px;top:-100px;opacity:0.15"></div>
+  <div class="orb orb--violet" style="width:300px;height:300px;right:-50px;top:50%;opacity:0.1"></div>
+  <div class="container">
+    <div class="page-hero__inner">
+      <span class="badge badge--cyan">Servicios</span>
+      <h1 class="page-hero__title">
+        Todo lo que tu negocio necesita
+        <span class="gradient-text"> para estar bien en internet</span>
+      </h1>
+      <p class="page-hero__sub">
+        Desde una página profesional hasta sistemas personalizados. Cada servicio está pensado para resolver un problema real de tu negocio, sin tecnología de más ni de menos.
+      </p>
+      <a routerLink="/contacto" class="btn btn--primary btn--lg">Cotizar un servicio</a>
+    </div>
+  </div>
+</section>
+
+<!-- Services List -->
+<section class="section services-list-section">
+  <div class="container">
+    <div class="services-intro reveal">
+      <p class="services-intro__text">
+        <span class="mono-tag">// lo que ofrecemos</span>
+        Deja de depender solo de redes sociales para explicar quién eres, qué haces y cómo pueden encontrarte. Una buena presencia digital comienza con la herramienta adecuada para tu momento actual.
+      </p>
+    </div>
+
+    <div class="services-full-grid">
+      @for (service of services; track service.id; let i = $index) {
+        <div class="reveal" [class]="i % 2 === 0 ? 'reveal--left' : 'reveal--right'">
+          <app-service-card [service]="service" [compact]="false"></app-service-card>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- Why Osmaritech -->
+<section class="section section--deep why-section">
+  <div class="grid-bg"></div>
+  <div class="container">
+    <app-section-title
+      badge="¿Por qué Osmaritech?"
+      headline="Una presencia digital"
+      accentWord="bien hecha"
+      subheading="No solo construimos páginas. Entendemos qué necesita comunicar tu negocio y lo construimos de forma que funcione."
+      [center]="true"
+    ></app-section-title>
+    <div class="why-grid">
+      <div class="why-card reveal reveal--delay-1">
+        <div class="why-card__num">01</div>
+        <h3>Diseño con intención</h3>
+        <p>Cada sección, cada botón y cada texto tiene un propósito: facilitar que tu cliente entienda y te contacte.</p>
+      </div>
+      <div class="why-card reveal reveal--delay-2">
+        <div class="why-card__num">02</div>
+        <h3>Código limpio y escalable</h3>
+        <p>Tu sitio está preparado para crecer con tu negocio, sin empezar desde cero cada vez que quieras mejorar algo.</p>
+      </div>
+      <div class="why-card reveal reveal--delay-3">
+        <div class="why-card__num">03</div>
+        <h3>Comunicación clara</h3>
+        <p>Sin tecnicismos innecesarios. Te explico qué estoy haciendo y por qué, para que puedas tomar decisiones informadas.</p>
+      </div>
+      <div class="why-card reveal reveal--delay-4">
+        <div class="why-card__num">04</div>
+        <h3>Enfocado en resultados reales</h3>
+        <p>El objetivo no es que tu página se vea bonita, sino que haga su trabajo: generar confianza y facilitar el contacto.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<app-cta-section
+  headline="¿No sabes cuál servicio necesitas?"
+  subheadline="Cuéntame qué está pasando con tu negocio y encuentro la solución más adecuada para ti."
+  primaryLabel="Hablar sobre mi proyecto"
+  secondaryLabel="Ver paquetes"
+  secondaryLink="/paquetes"
+></app-cta-section>

@@ -1,0 +1,112 @@
+.page-hero {
+  position: relative;
+  padding: 6rem 0 5rem;
+  background: var(--bg-deep);
+  overflow: hidden;
+  text-align: center;
+
+  .container { position: relative; z-index: 1; }
+}
+
+.page-hero__inner {
+  max-width: 740px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.page-hero__title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  line-height: 1.15;
+}
+
+.page-hero__sub {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  max-width: 580px;
+  line-height: 1.75;
+}
+
+// ─── Projects ───────────────────────────
+.projects-section {
+  background: var(--bg-base);
+}
+
+.projects-intro {
+  max-width: 640px;
+  margin-bottom: 3rem;
+  padding: 1.25rem 1.5rem;
+  background: rgba(16,217,142,0.04);
+  border: 1px solid rgba(16,217,142,0.12);
+  border-radius: var(--radius-lg);
+  border-left: 3px solid var(--accent-mint);
+
+  p {
+    font-size: 0.93rem;
+    color: var(--text-secondary);
+    line-height: 1.75;
+  }
+
+  .mono-tag { display: block; margin-bottom: 0.4rem; }
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+
+  @media (max-width: 1024px) { grid-template-columns: repeat(2, 1fr); }
+  @media (max-width: 640px)  { grid-template-columns: 1fr; }
+}
+
+// ─── Methodology ────────────────────────
+.methodology-section {
+  background: var(--bg-surface);
+}
+
+.methodology-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+
+  @media (max-width: 900px) { grid-template-columns: 1fr; }
+}
+
+.method-card {
+  padding: 2rem;
+  background: var(--bg-glass);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  backdrop-filter: blur(8px);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  transition: all var(--transition-slow);
+
+  &:hover {
+    border-color: var(--border-accent);
+    transform: translateY(-4px);
+    box-shadow: var(--glow-cyan);
+  }
+
+  h3 {
+    font-size: 1rem;
+    color: var(--text-primary);
+    font-weight: 700;
+  }
+
+  p {
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+}
+
+.method-card__icon {
+  font-size: 1.4rem;
+  color: var(--accent-cyan);
+  opacity: 0.8;
+}

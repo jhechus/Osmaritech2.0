@@ -1,0 +1,90 @@
+<!-- Page Hero -->
+<section class="contact-hero">
+  <div class="grid-bg"></div>
+  <div class="orb orb--cyan" style="width:400px;height:400px;left:-100px;top:-100px;opacity:0.15"></div>
+  <div class="orb orb--violet" style="width:350px;height:350px;right:-80px;bottom:-80px;opacity:0.1"></div>
+  <div class="container">
+    <div class="contact-hero__inner">
+      <span class="badge badge--cyan">Contacto</span>
+      <h1 class="contact-hero__title">
+        Hablemos de
+        <span class="gradient-text"> tu proyecto</span>
+      </h1>
+      <p class="contact-hero__sub">
+        ¿Tienes una idea o quieres mejorar la presencia digital de tu negocio? Cuéntame qué necesitas y te ayudo a convertirlo en una página, landing o sistema funcional.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Contact Content -->
+<section class="section contact-section">
+  <div class="container">
+    <div class="contact-layout">
+
+      <!-- Sidebar -->
+      <div class="contact-sidebar">
+        <div class="contact-info-card reveal reveal--left">
+          <h3 class="contact-info-card__title">¿Cómo prefieren contactarme?</h3>
+          <div class="contact-channels">
+            @for (info of contactInfo; track info.label) {
+              <a [href]="info.href" target="_blank" class="contact-channel" [attr.data-accent]="info.accent">
+                <span class="contact-channel__icon">{{ info.icon }}</span>
+                <div>
+                  <span class="contact-channel__label">{{ info.label }}</span>
+                  <span class="contact-channel__value">{{ info.value }}</span>
+                </div>
+                <span class="contact-channel__arrow">→</span>
+              </a>
+            }
+          </div>
+        </div>
+
+        <div class="contact-promises reveal reveal--left reveal--delay-2">
+          <h4 class="contact-promises__title">Cuando me escribas</h4>
+          <ul class="contact-promises__list">
+            @for (promise of promises; track promise) {
+              <li>
+                <span class="contact-promises__check">◆</span>
+                {{ promise }}
+              </li>
+            }
+          </ul>
+        </div>
+
+        <div class="contact-tag-card reveal reveal--left reveal--delay-3">
+          <p class="mono-tag">// servicios disponibles</p>
+          <div class="contact-services-tags">
+            <span>Diseño web</span>
+            <span>Landing pages</span>
+            <span>Sistemas web</span>
+            <span>Mantenimiento</span>
+            <span>SEO técnico</span>
+            <span>Hosting & SSL</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Form -->
+      <div class="contact-form-wrapper reveal reveal--right">
+        <div class="contact-form-card">
+          <div class="contact-form-card__header">
+            <h2 class="contact-form-card__title">Cuéntame sobre tu proyecto</h2>
+            <p class="contact-form-card__sub">Completa el formulario o escríbeme directamente por WhatsApp. Cualquiera de las dos formas funciona.</p>
+          </div>
+          <app-contact-form></app-contact-form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Final note -->
+<section class="contact-footer-note">
+  <div class="container">
+    <div class="contact-footer-note__inner">
+      <span class="mono-tag">// osmaritech.com</span>
+      <p>Si un cliente te busca en internet, tu página debe hablar bien de ti antes de que te escriba.</p>
+    </div>
+  </div>
+</section>

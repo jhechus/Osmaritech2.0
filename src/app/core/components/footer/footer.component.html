@@ -1,0 +1,82 @@
+<footer class="footer">
+  <div class="footer__top">
+    <div class="container">
+      <div class="footer__grid">
+
+        <!-- Brand -->
+        <div class="footer__brand">
+          <a routerLink="/" class="footer__logo">
+            <span class="footer__hex"></span>
+            <span class="footer__name">Osmari<span>tech</span></span>
+          </a>
+          <p class="footer__desc">
+            Diseñamos páginas web, landing pages y sistemas digitales para que tu negocio se vea profesional, transmita confianza y tenga herramientas reales para crecer.
+          </p>
+          <div class="footer__contact-info">
+            <a href="mailto:contacto@osmaritech.com" class="footer__contact-link">
+              <span class="footer__contact-icon">✉</span>
+              contacto&#64;osmaritech.com
+            </a>
+            <a href="https://wa.me/521XXXXXXXXXX" target="_blank" rel="noopener noreferrer" class="footer__contact-link">
+              <span class="footer__contact-icon footer__contact-icon--wa">◆</span>
+              WhatsApp
+            </a>
+          </div>
+        </div>
+
+        <!-- Services -->
+        <div class="footer__col">
+          <h4 class="footer__col-title">Servicios</h4>
+          <ul class="footer__list">
+            @for (service of services; track service.label) {
+              <li>
+                <a [routerLink]="service.path" class="footer__link">{{ service.label }}</a>
+              </li>
+            }
+          </ul>
+        </div>
+
+        <!-- Navigation -->
+        <div class="footer__col">
+          <h4 class="footer__col-title">Navegación</h4>
+          <ul class="footer__list">
+            @for (link of links; track link.path) {
+              <li>
+                <a [routerLink]="link.path" class="footer__link">{{ link.label }}</a>
+              </li>
+            }
+          </ul>
+        </div>
+
+        <!-- CTA Block -->
+        <div class="footer__cta-block">
+          <p class="footer__cta-text">
+            ¿Listo para tener una presencia digital que hable bien de tu negocio?
+          </p>
+          <a routerLink="/contacto" class="btn btn--primary">
+            Hablemos de tu proyecto
+          </a>
+          <div class="footer__tech-note">
+            <span class="mono-tag">// soluciones digitales para negocios</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="footer__bottom">
+    <div class="container">
+      <div class="footer__bottom-inner">
+        <p class="footer__copy">
+          © {{ currentYear }} Osmaritech. Todos los derechos reservados.
+        </p>
+        <p class="footer__made">
+          Diseño y desarrollo web profesional
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>

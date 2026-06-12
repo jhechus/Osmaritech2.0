@@ -1,0 +1,197 @@
+.page-hero {
+  position: relative;
+  padding: 6rem 0 5rem;
+  background: var(--bg-deep);
+  overflow: hidden;
+  text-align: center;
+
+  .container { position: relative; z-index: 1; }
+}
+
+.page-hero__inner {
+  max-width: 720px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.page-hero__title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  line-height: 1.15;
+}
+
+.page-hero__sub {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  max-width: 560px;
+  line-height: 1.75;
+}
+
+// ─── Process ────────────────────────────
+.process-section {
+  background: var(--bg-base);
+}
+
+.process-layout {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 4rem;
+  align-items: start;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+}
+
+.steps-list {
+  margin-top: 1rem;
+}
+
+.process-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  position: sticky;
+  top: 100px;
+
+  @media (max-width: 1024px) {
+    position: static;
+  }
+}
+
+// ─── Trust Card ──────────────────────────
+.trust-card {
+  background: var(--bg-glass);
+  border: 1px solid var(--border-accent);
+  border-radius: var(--radius-xl);
+  padding: 2rem;
+  backdrop-filter: blur(12px);
+  box-shadow: var(--glow-cyan);
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent-cyan), var(--accent-violet));
+    border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+  }
+}
+
+.trust-card__header {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.trust-card__icon {
+  font-size: 0.8rem;
+  color: var(--accent-cyan);
+  margin-top: 4px;
+}
+
+.trust-card__title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.4;
+}
+
+.trust-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.trust-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.trust-item__icon {
+  font-size: 0.8rem;
+  color: var(--accent-cyan);
+  opacity: 0.7;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+// ─── Timeline Card ──────────────────────
+.timeline-card {
+  background: rgba(139, 92, 246, 0.05);
+  border: 1px solid rgba(139, 92, 246, 0.15);
+  border-radius: var(--radius-xl);
+  padding: 1.75rem;
+
+  h4 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.75rem;
+  }
+
+  p {
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+}
+
+// ─── Commitment ─────────────────────────
+.commitment-section {
+  position: relative;
+}
+
+.commitment-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+
+  @media (max-width: 700px) { grid-template-columns: 1fr; }
+}
+
+.commitment-item {
+  padding: 2rem;
+  background: var(--bg-glass);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  backdrop-filter: blur(8px);
+  transition: all var(--transition-slow);
+
+  &:hover {
+    border-color: var(--border-accent);
+    transform: translateY(-4px);
+    box-shadow: var(--glow-cyan);
+  }
+
+  h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0.75rem 0 0.5rem;
+  }
+
+  p {
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+}
+
+.commitment-item__num {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--accent-cyan);
+  opacity: 0.5;
+  letter-spacing: 0.05em;
+}

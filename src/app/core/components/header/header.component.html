@@ -1,0 +1,69 @@
+<header class="header" [class.header--scrolled]="isScrolled">
+  <div class="header__inner container">
+
+    <!-- Logo -->
+    <a routerLink="/" class="header__logo" (click)="closeMenu()">
+      <span class="logo__icon">
+        <span class="logo__hex"></span>
+      </span>
+      <span class="logo__wordmark">
+        <span class="logo__name">Osmari<span class="logo__accent">tech</span></span>
+        <span class="logo__tagline">Desarrollo Web</span>
+      </span>
+    </a>
+
+    <!-- Desktop Nav -->
+    <nav class="header__nav" aria-label="Navegación principal">
+      @for (link of navLinks; track link.path) {
+        <a
+          [routerLink]="link.path"
+          routerLinkActive="nav__link--active"
+          class="nav__link"
+        >{{ link.label }}</a>
+      }
+    </nav>
+
+    <!-- CTA + Hamburger -->
+    <div class="header__actions">
+      <a routerLink="/contacto" class="btn btn--primary header__cta">
+        Cotizar proyecto
+      </a>
+      <button
+        class="hamburger"
+        [class.hamburger--open]="mobileMenuOpen"
+        (click)="toggleMenu()"
+        aria-label="Menú"
+        [attr.aria-expanded]="mobileMenuOpen"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" [class.mobile-menu--open]="mobileMenuOpen" role="dialog" aria-modal="true">
+    <nav class="mobile-menu__nav">
+      @for (link of navLinks; track link.path) {
+        <a
+          [routerLink]="link.path"
+          routerLinkActive="mobile-nav__link--active"
+          class="mobile-nav__link"
+          (click)="closeMenu()"
+        >
+          <span class="mobile-nav__num">0{{ $index + 1 }}</span>
+          {{ link.label }}
+        </a>
+      }
+      <a routerLink="/contacto" class="btn btn--primary mobile-menu__cta" (click)="closeMenu()">
+        Cotizar proyecto
+      </a>
+    </nav>
+  </div>
+
+  <!-- Overlay -->
+  @if (mobileMenuOpen) {
+    <div class="menu-overlay" (click)="closeMenu()"></div>
+  }
+</header>

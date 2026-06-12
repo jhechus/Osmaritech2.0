@@ -1,0 +1,175 @@
+.footer {
+  background-color: var(--bg-deep);
+  border-top: 1px solid var(--border-subtle);
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(0,207,255,0.4), rgba(139,92,246,0.4), transparent);
+  }
+}
+
+.footer__top {
+  padding: 5rem 0 3.5rem;
+}
+
+.footer__grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1.5fr;
+  gap: 3rem;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+  }
+
+  @media (max-width: 600px) {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+// ── Brand ────────────────────────────────────
+.footer__logo {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+  margin-bottom: 1.25rem;
+}
+
+.footer__hex {
+  display: block;
+  width: 28px;
+  height: 28px;
+  background: linear-gradient(135deg, var(--accent-cyan), var(--accent-violet));
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  flex-shrink: 0;
+}
+
+.footer__name {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.1rem;
+  color: var(--text-primary);
+  letter-spacing: -0.03em;
+
+  span { color: var(--accent-cyan); }
+}
+
+.footer__desc {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+  max-width: 340px;
+}
+
+.footer__contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.footer__contact-link {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+
+  &:hover { color: var(--accent-cyan); }
+}
+
+.footer__contact-icon {
+  font-size: 0.75rem;
+  color: var(--accent-cyan);
+  opacity: 0.7;
+
+  &--wa { color: #25D366; }
+}
+
+// ── Columns ──────────────────────────────────
+.footer__col-title {
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 1.25rem;
+}
+
+.footer__list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.footer__link {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color var(--transition-fast), padding var(--transition-fast);
+  display: block;
+
+  &:hover {
+    color: var(--accent-cyan);
+    padding-left: 4px;
+  }
+}
+
+// ── CTA Block ────────────────────────────────
+.footer__cta-block {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding: 1.75rem;
+  background: rgba(0, 207, 255, 0.04);
+  border: 1px solid rgba(0, 207, 255, 0.1);
+  border-radius: var(--radius-lg);
+}
+
+.footer__cta-text {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.5;
+}
+
+.footer__tech-note {
+  margin-top: 0.25rem;
+}
+
+// ── Bottom ───────────────────────────────────
+.footer__bottom {
+  padding: 1.5rem 0;
+}
+
+.footer__bottom-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+
+  @media (max-width: 600px) {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+.footer__copy,
+.footer__made {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}

@@ -1,0 +1,74 @@
+<!-- Page Hero -->
+<section class="page-hero">
+  <div class="grid-bg"></div>
+  <div class="orb orb--mint" style="width:400px;height:400px;right:-100px;top:-50px;opacity:0.12"></div>
+  <div class="container">
+    <div class="page-hero__inner">
+      <span class="badge badge--cyan">Proyectos</span>
+      <h1 class="page-hero__title">
+        Cómo se ve en la práctica
+        <span class="gradient-text--cyan"> lo que hacemos</span>
+      </h1>
+      <p class="page-hero__sub">
+        Casos de negocios reales con problemas comunes resueltos con páginas web, landing pages y sistemas personalizados. Sin relleno, sin resultados inventados.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Projects -->
+<section class="section projects-section">
+  <div class="container">
+    <div class="projects-intro reveal">
+      <p>
+        <span class="mono-tag">// casos reales</span>
+        Estos son ejemplos de cómo una solución digital bien pensada puede cambiar la manera en que un negocio se presenta, explica y consigue clientes.
+      </p>
+    </div>
+
+    <div class="projects-grid">
+      @for (project of projects; track project.id; let i = $index) {
+        <div class="reveal" [class]="'reveal--delay-' + (i + 1)">
+          <app-project-card [project]="project"></app-project-card>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- Methodology -->
+<section class="section section--light methodology-section">
+  <div class="container">
+    <app-section-title
+      badge="Nuestro enfoque"
+      headline="Cada proyecto empieza"
+      accentWord="con un diagnóstico"
+      subheading="No construimos páginas sin entender primero qué necesita comunicar tu negocio y a quién le habla."
+    ></app-section-title>
+
+    <div class="methodology-grid">
+      <div class="method-card reveal reveal--delay-1">
+        <span class="method-card__icon">◎</span>
+        <h3>Primero entendemos</h3>
+        <p>Antes de diseñar, entendemos qué vendes, a quién y cuál es el problema más importante que tiene tu presencia digital.</p>
+      </div>
+      <div class="method-card reveal reveal--delay-2">
+        <span class="method-card__icon">◈</span>
+        <h3>Luego diseñamos con intención</h3>
+        <p>Cada sección tiene un propósito claro: explicar, generar confianza o facilitar el contacto. Sin relleno visual.</p>
+      </div>
+      <div class="method-card reveal reveal--delay-3">
+        <span class="method-card__icon">⬡</span>
+        <h3>Después construimos y revisamos</h3>
+        <p>Desarrollo limpio, responsivo y revisado contigo antes de publicar. Tu negocio no es un experimento.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<app-cta-section
+  headline="¿Quieres que hagamos algo así para tu negocio?"
+  subheadline="Cuéntame tu situación y te explico qué solución tendría más sentido para lo que necesitas."
+  primaryLabel="Cotizar mi proyecto"
+  secondaryLabel="Ver servicios"
+></app-cta-section>

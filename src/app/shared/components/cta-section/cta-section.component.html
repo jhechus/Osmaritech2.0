@@ -1,0 +1,25 @@
+<section class="cta-section">
+  <div class="cta-section__orb cta-section__orb--cyan orb orb--cyan"></div>
+  <div class="cta-section__orb cta-section__orb--violet orb orb--violet"></div>
+  <div class="cta-section__noise"></div>
+
+  <div class="container">
+    <div class="cta-section__inner">
+      <div class="cta-section__tag mono-tag">// siguiente paso</div>
+      <h2 class="cta-section__headline">
+        {{ headline }}
+      </h2>
+      <p class="cta-section__sub">{{ subheadline }}</p>
+      <div class="cta-section__actions">
+        <a [routerLink]="primaryLink" class="btn btn--primary btn--lg">
+          {{ primaryLabel }}
+        </a>
+        @if (showSecondary) {
+          <a [routerLink]="secondaryLink" class="btn btn--secondary btn--lg">
+            {{ secondaryLabel }}
+          </a>
+        }
+      </div>
+    </div>
+  </div>
+</section>

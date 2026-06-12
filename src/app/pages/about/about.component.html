@@ -1,0 +1,126 @@
+<!-- Page Hero -->
+<section class="page-hero">
+  <div class="grid-bg"></div>
+  <div class="orb orb--cyan" style="width:500px;height:500px;left:-150px;top:-150px;opacity:0.12"></div>
+  <div class="orb orb--violet" style="width:400px;height:400px;right:-100px;bottom:-100px;opacity:0.1"></div>
+  <div class="container">
+    <div class="page-hero__inner">
+      <span class="badge badge--cyan">Sobre Osmaritech</span>
+      <h1 class="page-hero__title">
+        Una marca creada para
+        <span class="gradient-text"> negocios reales</span>
+      </h1>
+      <p class="page-hero__sub">
+        No somos una agencia gigante ni una plantilla de servicio genérico. Somos una marca especializada en ayudarte a tener una presencia digital que realmente funcione para tu negocio.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Story -->
+<section class="section story-section">
+  <div class="container">
+    <div class="story-grid reveal">
+      <div class="story-text">
+        <span class="mono-tag">// nuestra historia</span>
+        <h2 class="story-title">
+          Nació de observar un problema común: negocios con buenos servicios, pero presencia digital que no los representa.
+        </h2>
+        <p>
+          Osmaritech nace para ayudar a negocios, profesionistas y emprendedores a tener una presencia digital más profesional sin complicarles el proceso.
+        </p>
+        <p class="mt-sm">
+          Creamos páginas web, landing pages y sistemas que se entienden, se ven bien y cumplen una función real: explicar mejor lo que haces, generar confianza y facilitar que tus clientes te contacten.
+        </p>
+        <p class="mt-sm">
+          No buscamos hacer páginas bonitas sin estrategia. Buscamos crear herramientas digitales claras, funcionales y preparadas para crecer con tu negocio.
+        </p>
+        <div class="story-quote">
+          <span class="story-quote__mark">"</span>
+          <p>Tu negocio puede verse tan profesional como el servicio que ya ofreces.</p>
+        </div>
+      </div>
+      <div class="story-visual">
+        <div class="story-card story-card--main">
+          <div class="story-card__hex"></div>
+          <div class="story-card__content">
+            <h3>Osmaritech</h3>
+            <p>Desarrollo web para negocios</p>
+            <div class="story-card__tags">
+              <span>Diseño</span>
+              <span>Desarrollo</span>
+              <span>Sistemas</span>
+            </div>
+          </div>
+        </div>
+        <div class="story-card story-card--focus">
+          <span class="mono-tag">// enfoque actual</span>
+          <ul class="focus-list">
+            @for (f of focuses.slice(0,5); track f) {
+              <li><span>◆</span> {{ f }}</li>
+            }
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Values -->
+<section class="section section--light values-section">
+  <div class="container">
+    <app-section-title
+      badge="Valores"
+      headline="Lo que guía cómo"
+      accentWord="trabajamos"
+      subheading="No son frases de relleno en una página de empresa. Son los criterios reales que aplicamos en cada proyecto."
+      [center]="true"
+    ></app-section-title>
+
+    <div class="values-grid">
+      @for (value of values; track value.title; let i = $index) {
+        <div class="value-card reveal" [class]="'reveal--delay-' + (i + 1)">
+          <div class="value-card__icon">{{ value.icon }}</div>
+          <h3 class="value-card__title">{{ value.title }}</h3>
+          <p class="value-card__desc">{{ value.desc }}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- What we focus on -->
+<section class="section focus-section">
+  <div class="container">
+    <div class="focus-layout">
+      <div class="focus-text reveal reveal--left">
+        <app-section-title
+          badge="Especialización"
+          headline="En qué nos"
+          accentWord="especializamos"
+          subheading="Osmaritech se enfoca en desarrollo web, sistemas digitales y mantenimiento técnico. Hacemos lo que sabemos hacer bien."
+        ></app-section-title>
+        <p class="focus-note">
+          Actualmente <strong>no ofrecemos</strong> campañas publicitarias, manejo de redes sociales ni servicios de marketing digital. Nos especializamos en la parte técnica y de desarrollo.
+        </p>
+      </div>
+      <div class="focus-list-card reveal reveal--right">
+        <ul class="focus-items">
+          @for (focus of focuses; track focus) {
+            <li class="focus-item">
+              <span class="focus-item__dot">◆</span>
+              {{ focus }}
+            </li>
+          }
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<app-cta-section
+  headline="¿Tienes un proyecto en mente?"
+  subheadline="Cuéntame qué necesitas y encuentro la mejor solución para tu caso específico."
+  primaryLabel="Hablemos de tu proyecto"
+  secondaryLabel="Ver servicios"
+></app-cta-section>

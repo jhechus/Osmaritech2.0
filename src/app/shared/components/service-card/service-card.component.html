@@ -1,0 +1,42 @@
+<article class="service-card card" [class.service-card--compact]="compact" [attr.data-accent]="service.accent">
+  <div class="service-card__header">
+    <div class="service-card__icon-wrap">
+      <span class="service-card__icon">{{ service.icon }}</span>
+    </div>
+    <div class="service-card__meta">
+      <h3 class="service-card__title">{{ service.title }}</h3>
+      <p class="service-card__subtitle">{{ service.subtitle }}</p>
+    </div>
+  </div>
+
+  @if (!compact) {
+    <p class="service-card__desc">{{ service.description }}</p>
+
+    <div class="service-card__insight">
+      <div class="service-card__problem">
+        <span class="service-card__label">Problema que resuelve</span>
+        <p>{{ service.problem }}</p>
+      </div>
+      <div class="service-card__benefit">
+        <span class="service-card__label service-card__label--accent">Beneficio</span>
+        <p>{{ service.benefit }}</p>
+      </div>
+    </div>
+
+    <ul class="service-card__features">
+      @for (feature of service.features; track feature) {
+        <li class="service-card__feature">
+          <span class="service-card__check">◆</span>
+          {{ feature }}
+        </li>
+      }
+    </ul>
+  }
+
+  @if (compact) {
+    <p class="service-card__desc">{{ service.description }}</p>
+    <a routerLink="/servicios" class="btn btn--ghost">
+      Ver más <span class="arrow">→</span>
+    </a>
+  }
+</article>

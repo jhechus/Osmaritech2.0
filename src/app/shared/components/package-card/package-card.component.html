@@ -1,0 +1,30 @@
+<article class="pkg-card" [class.pkg-card--highlighted]="pkg.highlighted" [attr.data-accent]="pkg.accent">
+  @if (pkg.badge) {
+    <div class="pkg-card__badge">{{ pkg.badge }}</div>
+  }
+
+  <div class="pkg-card__header">
+    <h3 class="pkg-card__name">{{ pkg.name }}</h3>
+    <p class="pkg-card__tagline">{{ pkg.tagline }}</p>
+  </div>
+
+  <hr class="pkg-card__divider">
+
+  <p class="pkg-card__desc">{{ pkg.description }}</p>
+
+  <ul class="pkg-card__features">
+    @for (feature of pkg.features; track feature) {
+      <li class="pkg-card__feature">
+        <span class="pkg-card__check">◆</span>
+        {{ feature }}
+      </li>
+    }
+  </ul>
+
+  <div class="pkg-card__footer">
+    <p class="pkg-card__price-note">Precio según alcance del proyecto</p>
+    <a routerLink="/contacto" class="btn" [class.btn--primary]="pkg.highlighted" [class.btn--secondary]="!pkg.highlighted">
+      {{ pkg.ctaText }}
+    </a>
+  </div>
+</article>
