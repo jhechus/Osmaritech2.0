@@ -3,7 +3,11 @@
     "allow": [
       "Bash(npx tsc:*)",
       "Bash(npm run:*)",
-      "WebFetch(domain:nutri-demo-hazel.vercel.app)"
+      "WebFetch(domain:nutri-demo-hazel.vercel.app)",
+      "Bash(ls -la | grep -i npm && cat ~/.npmrc 2>/dev/null | head -5 || echo \"Sin ~/.npmrc global\")",
+      "Read(//c/Users/jess-/**)",
+      "Bash(npm install *)",
+      "Bash(npm config *)"
     ]
   }
 }
