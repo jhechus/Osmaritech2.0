@@ -13,17 +13,10 @@ import { ContactFormComponent } from '../../shared/components/contact-form/conta
 export class ContactComponent implements AfterViewInit {
   contactInfo = [
     {
-      icon: '✉',
-      label: 'Correo electrónico',
-      value: 'contacto@osmaritech.com',
-      href: 'mailto:contacto@osmaritech.com',
-      accent: 'cyan'
-    },
-    {
       icon: '◆',
       label: 'WhatsApp',
-      value: 'Escríbeme directamente',
-      href: 'https://wa.me/521XXXXXXXXXX?text=Hola,%20me%20interesa%20cotizar%20un%20proyecto%20web',
+      value: '56 4782 9535',
+      href: 'https://wa.me/525647829535?text=Hola,%20me%20interesa%20cotizar%20un%20proyecto%20web',
       accent: 'mint'
     }
   ];

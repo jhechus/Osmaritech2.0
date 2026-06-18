@@ -9,4 +9,5 @@ export interface Project {
   services: string[];
   accentColor: string;
   icon: string;
+  url?: string;
 }

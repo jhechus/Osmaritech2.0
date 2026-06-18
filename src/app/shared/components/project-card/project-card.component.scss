@@ -117,6 +117,13 @@
   }
 }
 
+.project-card__tags-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  padding-top: 0.5rem;
+}
+
 .project-card__footer {
   display: flex;
   align-items: center;
@@ -127,10 +134,46 @@
   border-top: 1px solid var(--border-subtle);
 }
 
-.project-card__tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
+.project-card__live-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.45rem 1rem;
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all var(--transition-base);
+
+  &:hover {
+    background: rgba(255,255,255,0.04);
+    transform: translateY(-1px);
+  }
+
+  span:last-child {
+    font-size: 0.9rem;
+    transition: transform var(--transition-fast);
+  }
+
+  &:hover span:last-child {
+    transform: translate(2px, -2px);
+  }
+}
+
+.project-card__live-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  animation: livePulse 2s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+@keyframes livePulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.6; transform: scale(0.85); }
 }
 
 .project-card__tag {

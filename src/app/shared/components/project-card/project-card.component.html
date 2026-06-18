@@ -29,12 +29,27 @@
     }
   </div>
 
+  <div class="project-card__tags-row">
+    @for (service of project.services; track service) {
+      <span class="project-card__tag">{{ service }}</span>
+    }
+  </div>
+
   <div class="project-card__footer">
-    <div class="project-card__tags">
-      @for (service of project.services; track service) {
-        <span class="project-card__tag">{{ service }}</span>
-      }
-    </div>
+    @if (project.url) {
+      <a
+        [href]="project.url"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="project-card__live-btn"
+        [style.border-color]="'rgba(' + hexToRgb(project.accentColor) + ', 0.35)'"
+        [style.color]="project.accentColor"
+      >
+        <span class="project-card__live-dot" [style.background]="project.accentColor"></span>
+        Ver sitio en vivo
+        <span>↗</span>
+      </a>
+    }
     <button class="project-card__toggle" (click)="toggle()">
       {{ expanded ? 'Ver menos' : 'Ver resultado' }}
       <span [class.rotated]="expanded">↓</span>

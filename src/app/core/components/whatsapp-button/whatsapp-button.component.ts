@@ -7,7 +7,7 @@ import { CommonModule } from '@angular/common';
   imports: [CommonModule],
   template: `
     <a
-      href="https://wa.me/521XXXXXXXXXX?text=Hola,%20me%20interesa%20cotizar%20un%20proyecto%20web"
+      href="https://wa.me/525647829535?text=Hola,%20me%20interesa%20cotizar%20un%20proyecto%20web"
       target="_blank"
       rel="noopener noreferrer"
       class="wa-btn"
