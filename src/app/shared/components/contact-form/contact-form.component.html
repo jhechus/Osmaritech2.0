@@ -16,6 +16,34 @@
         >
       </div>
       <div class="form-group">
+        <label class="form-label" for="email">Correo electrónico <span class="form-required">*</span></label>
+        <input
+          class="form-input"
+          type="email"
+          id="email"
+          name="email"
+          [(ngModel)]="formData.email"
+          placeholder="tu@correo.com"
+          required
+          autocomplete="email"
+        >
+      </div>
+    </div>
+
+    <div class="form-row form-row--two">
+      <div class="form-group">
+        <label class="form-label" for="phone">Teléfono / WhatsApp</label>
+        <input
+          class="form-input"
+          type="tel"
+          id="phone"
+          name="phone"
+          [(ngModel)]="formData.phone"
+          placeholder="+52 55 0000 0000"
+          autocomplete="tel"
+        >
+      </div>
+      <div class="form-group">
         <label class="form-label" for="business">Nombre del negocio</label>
         <input
           class="form-input"
@@ -60,7 +88,7 @@
       <button
         type="submit"
         class="btn btn--primary btn--lg form-submit"
-        [disabled]="submitting || !formData.name || !formData.message"
+        [disabled]="submitting || !formData.name || !formData.email || !formData.message"
       >
         @if (submitting) {
           <span class="form-spinner"></span>

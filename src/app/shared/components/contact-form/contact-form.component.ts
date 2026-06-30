@@ -17,6 +17,8 @@ const EMAILJS_PUBLIC_KEY  = 'SAWRCsQMykvklf4uX';
 export class ContactFormComponent {
   formData = {
     name: '',
+    email: '',
+    phone: '',
     business: '',
     service: '',
     message: ''
@@ -49,6 +51,8 @@ export class ContactFormComponent {
       EMAILJS_TEMPLATE_ID,
       {
         from_name: this.formData.name,
+        email:     this.formData.email,
+        phone:     this.formData.phone || 'No proporcionado',
         business:  this.formData.business,
         service:   this.formData.service,
         message:   this.formData.message,
@@ -66,6 +70,6 @@ export class ContactFormComponent {
   reset(): void {
     this.submitted = false;
     this.error = false;
-    this.formData = { name: '', business: '', service: '', message: '' };
+    this.formData = { name: '', email: '', phone: '', business: '', service: '', message: '' };
   }
 }
