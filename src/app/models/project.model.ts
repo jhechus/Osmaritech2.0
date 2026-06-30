@@ -10,4 +10,5 @@ export interface Project {
   accentColor: string;
   icon: string;
   url?: string;
+  note?: string;
 }

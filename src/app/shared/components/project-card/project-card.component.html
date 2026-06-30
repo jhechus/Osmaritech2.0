@@ -55,4 +55,7 @@
       <span [class.rotated]="expanded">↓</span>
     </button>
   </div>
+  @if (project.note) {
+    <p class="project-card__note">{{ project.note }}</p>
+  }
 </article>
