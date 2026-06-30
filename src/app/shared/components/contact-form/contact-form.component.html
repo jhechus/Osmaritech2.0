@@ -52,6 +52,10 @@
       ></textarea>
     </div>
 
+    @if (error) {
+      <p class="form-error">Hubo un error al enviar el mensaje. Inténtalo de nuevo o escríbeme por WhatsApp.</p>
+    }
+
     <div class="form-actions">
       <button
         type="submit"
