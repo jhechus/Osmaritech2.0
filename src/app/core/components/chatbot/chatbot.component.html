@@ -1,0 +1,82 @@
+<button
+  type="button"
+  class="chat-toggle"
+  [class.chat-toggle--open]="isOpen"
+  (click)="toggle()"
+  [attr.aria-label]="isOpen ? 'Cerrar asistente virtual' : 'Abrir asistente virtual'"
+>
+  @if (!isOpen) {
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/>
+    </svg>
+  } @else {
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M18 6L6 18M6 6l12 12"/>
+    </svg>
+  }
+</button>
+
+@if (isOpen) {
+  <div class="chat-panel" role="dialog" aria-label="Asistente virtual Osmaritech">
+    <div class="chat-panel__header">
+      <div class="chat-panel__avatar">OT</div>
+      <div class="chat-panel__title">
+        <strong>Asistente Osmaritech</strong>
+        <span class="chat-panel__status"><i></i> Responde al instante</span>
+      </div>
+      <button type="button" class="chat-panel__close" (click)="close()" aria-label="Cerrar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M18 6L6 18M6 6l12 12"/>
+        </svg>
+      </button>
+    </div>
+
+    <div class="chat-panel__messages" #messagesEl>
+      @for (msg of messages; track $index) {
+        <div class="chat-msg" [class.chat-msg--user]="msg.from === 'user'">
+          <p class="chat-msg__bubble">{{ msg.text }}</p>
+          @if (msg.cta?.length) {
+            <div class="chat-msg__cta">
+              @for (cta of msg.cta; track cta.label) {
+                <button type="button" class="chat-msg__cta-btn" (click)="onCta(cta)">{{ cta.label }}</button>
+              }
+            </div>
+          }
+        </div>
+      }
+
+      @if (isTyping) {
+        <div class="chat-msg">
+          <p class="chat-msg__bubble chat-msg__bubble--typing">
+            <span></span><span></span><span></span>
+          </p>
+        </div>
+      }
+
+      @if (messages.length <= 1) {
+        <div class="chat-suggestions">
+          @for (s of suggestions; track s) {
+            <button type="button" class="chat-suggestions__chip" (click)="sendSuggestion(s)">{{ s }}</button>
+          }
+        </div>
+      }
+    </div>
+
+    <form class="chat-panel__input" (ngSubmit)="send()">
+      <input
+        type="text"
+        name="chatMessage"
+        placeholder="Escribe tu pregunta..."
+        [(ngModel)]="inputValue"
+        autocomplete="off"
+      />
+      <button type="submit" aria-label="Enviar mensaje" [disabled]="!inputValue.trim()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
+        </svg>
+      </button>
+    </form>
+
+    <p class="chat-panel__disclaimer">Respuestas automáticas. Para atención personal, escríbenos por WhatsApp.</p>
+  </div>
+}
