@@ -1,59 +1,52 @@
-# Osmaritech
+# Osmaritech — sitio web
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.6.
+Sitio multipágina de Osmaritech (Angular 19 + GSAP/ScrollTrigger). Es una SPA desplegada en Vercel;
+`api/log-question.js` es la única función serverless (guarda en Supabase las preguntas que el chatbot no supo responder).
 
-## Development server
-
-To start a local development server, run:
-
-```bash
-ng serve
-```
-
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Comandos
 
 ```bash
-ng generate component component-name
+npm install --legacy-peer-deps
+npm start            # http://localhost:4200
+npm run build        # dist/osmaritech/browser
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Páginas
 
-```bash
-ng generate --help
+| Ruta | Contenido | Animaciones destacadas |
+|---|---|---|
+| `/` | Inicio | Navegador 3D con captura real que se endereza con el scroll, marquesina que reacciona a la velocidad, tarjetas "problema" que se tachan, contadores, tilt |
+| `/servicios` | 10 servicios | Índice lateral sticky que resalta el servicio visible |
+| `/paquetes` | 4 paquetes + FAQ | Tarjetas con tilt, acordeón |
+| `/proyectos` | Chubot | Galería de capturas reales con parallax |
+| `/proyectos/chubot` | Caso de estudio | Chat de Telegram fijado, diagrama que se dibuja, pipeline horizontal, capas de seguridad apiladas |
+| `/proceso` | 7 pasos | Scroll horizontal fijado con barra de progreso (vertical en móvil) |
+| `/nosotros` | Marca, valores, enfoque | Párrafo que se ilumina con el scroll, anillos del logo |
+| `/contacto` | Formulario EmailJS + WhatsApp | |
+
+## Estructura
+
+```
+src/app/
+├── data/        # contenido: servicios, paquetes, proceso, FAQ, beneficios, proyectos (Chubot)
+├── core/        # chatbot, botón de WhatsApp, MotionService (GSAP), SeoService (meta por ruta)
+├── layout/      # header (se oculta al bajar, menú móvil con clip-path), footer, barra de progreso, nav.ts
+├── shared/
+│   ├── motion/  # useGsap() + directivas: appReveal, appSplitWords, appParallax, appDrawSvg, appCounter, appTilt, appMagnetic
+│   ├── ui/      # icon (Lucide), section-heading, chip, next-page
+│   └── components/contact-form/   # EmailJS
+└── pages/       # una carpeta por ruta, cada una carga lazy
 ```
 
-## Building
+El patrón de animación es el mismo que `cv-portfolio/` (ver `.claude/skills/gsap-angular/SKILL.md` en la raíz del workspace).
 
-To build the project run:
+## Imágenes
 
-```bash
-ng build
-```
+`public/images/chubot/*.webp` son capturas reales del panel de Chubot (`oficinavirtual/`) corriendo en modo demo
+(base de datos en memoria, sin claves). Para regenerarlas, arranca el backend de `oficinavirtual` sin `.env`
+y vuelve a capturar el tablero y la oficina.
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+## Despliegue
 
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Vercel con `vercel.json` (rewrite de todo a `index.html`). En Vercel configura `SUPABASE_URL` y
+`SUPABASE_SERVICE_ROLE_KEY` para `api/log-question.js` (ver `.env.example`).

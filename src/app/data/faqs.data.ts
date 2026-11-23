@@ -11,7 +11,7 @@ export const FAQS: Faq[] = [
   },
   {
     question: '¿La página se verá bien en celular?',
-    answer: 'Sí, todos los sitios se desarrollan con diseño responsivo desde el inicio. Probamos en celular, tablet y escritorio para garantizar que la experiencia sea profesional en cualquier dispositivo.'
+    answer: 'Sí, todos los sitios se desarrollan adaptados a celular desde el inicio. Probamos en celular, tablet y escritorio para garantizar que la experiencia sea profesional en cualquier dispositivo.'
   },
   {
     question: '¿Me pueden ayudar con dominio y hosting?',

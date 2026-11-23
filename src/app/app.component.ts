@@ -1,30 +1,35 @@
-import { Component, OnInit } from '@angular/core';
-import { RouterOutlet, Router, NavigationEnd } from '@angular/router';
-import { filter } from 'rxjs/operators';
-import { CommonModule } from '@angular/common';
-import { HeaderComponent } from './core/components/header/header.component';
-import { FooterComponent } from './core/components/footer/footer.component';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
+import { ChatbotComponent } from './core/components/chatbot/chatbot.component';
 import { WhatsappButtonComponent } from './core/components/whatsapp-button/whatsapp-button.component';
+import { MotionService } from './core/motion/motion.service';
+import { SeoService } from './core/seo/seo.service';
+import { FooterComponent } from './layout/footer.component';
+import { HeaderComponent } from './layout/header.component';
+import { ScrollProgressComponent } from './layout/scroll-progress.component';
 
 @Component({
   selector: 'app-root',
-  standalone: true,
-  imports: [RouterOutlet, CommonModule, HeaderComponent, FooterComponent, WhatsappButtonComponent],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  imports: [RouterOutlet, HeaderComponent, FooterComponent, ScrollProgressComponent, WhatsappButtonComponent, ChatbotComponent],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: `
+    <a class="skip" href="#main">Saltar al contenido</a>
+    <app-scroll-progress />
+    <app-header style="view-transition-name: site-header" />
+    <main id="main"><router-outlet /></main>
+    <app-footer />
+    <app-whatsapp-button />
+    <app-chatbot />
+  `,
+  styles: `
+    .skip { position: fixed; left: 1rem; top: -4rem; z-index: 80; padding: .6rem 1rem; border-radius: .5rem; background: var(--accent); color: var(--bg); transition: top .3s; }
+    .skip:focus { top: 1rem; }
+    main { display: block; min-height: 100vh; }
+  `,
 })
-export class AppComponent implements OnInit {
-  animating = false;
-
-  constructor(private router: Router) {}
-
-  ngOnInit(): void {
-    this.router.events.pipe(
-      filter(e => e instanceof NavigationEnd)
-    ).subscribe(() => {
-      window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior });
-      this.animating = true;
-      setTimeout(() => (this.animating = false), 400);
-    });
+export class AppComponent {
+  constructor() {
+    inject(MotionService);
+    inject(SeoService).init();
   }
 }

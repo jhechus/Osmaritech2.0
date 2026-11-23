@@ -3,7 +3,7 @@ import { Service } from '../models/service.model';
 export const SERVICES: Service[] = [
   {
     id: 'diseno-desarrollo-web',
-    icon: '⬡',
+    icon: 'layout',
     title: 'Diseño y Desarrollo Web Profesional',
     subtitle: 'Tu presencia digital, construida bien desde el principio',
     description: 'Creamos sitios web modernos, rápidos, funcionales y adaptados a celulares, tablets y computadoras.',
@@ -11,7 +11,7 @@ export const SERVICES: Service[] = [
     benefit: 'Tus clientes pueden entender quién eres, qué ofreces y cómo contactarte sin depender únicamente de redes sociales.',
     features: [
       'Diseño personalizado para tu negocio',
-      'Sitio completamente responsivo',
+      'Se ve perfecto en celular y computadora',
       'Navegación clara e intuitiva',
       'Estructura profesional orientada al usuario',
       'Enfoque en facilitar el contacto',
@@ -22,7 +22,7 @@ export const SERVICES: Service[] = [
   },
   {
     id: 'paginas-negocios',
-    icon: '◈',
+    icon: 'building',
     title: 'Páginas Web para Negocios',
     subtitle: 'Un lugar formal donde tus clientes pueden conocerte',
     description: 'Sitios web pensados para negocios locales, profesionistas, emprendedores y marcas que necesitan presentar sus servicios de forma clara.',
@@ -41,7 +41,7 @@ export const SERVICES: Service[] = [
   },
   {
     id: 'landing-pages',
-    icon: '⟐',
+    icon: 'rocket',
     title: 'Landing Pages de Venta',
     subtitle: 'Una página enfocada en convertir visitas en contactos',
     description: 'Páginas enfocadas en presentar un servicio, oferta o idea específica con un mensaje claro y llamadas a la acción.',
@@ -52,7 +52,7 @@ export const SERVICES: Service[] = [
       'Llamadas a la acción estratégicas',
       'Secciones persuasivas',
       'Botón de WhatsApp integrado',
-      'Diseño responsivo',
+      'Adaptado a celular',
       'Copywriting comercial incluido'
     ],
     accent: 'mint',
@@ -60,7 +60,7 @@ export const SERVICES: Service[] = [
   },
   {
     id: 'rediseno',
-    icon: '↺',
+    icon: 'sparkles',
     title: 'Rediseño de Sitios Existentes',
     subtitle: 'Moderniza tu página sin perder lo que ya tienes',
     description: 'Modernizamos páginas que se ven antiguas, desordenadas, lentas o poco confiables para que transmitan la calidad real de tu negocio.',
@@ -78,7 +78,7 @@ export const SERVICES: Service[] = [
   },
   {
     id: 'mantenimiento',
-    icon: '⚙',
+    icon: 'wrench',
     title: 'Mantenimiento Técnico Web',
     subtitle: 'Tu sitio funcionando bien, siempre',
     description: 'Ayudamos a mantener tu sitio funcionando correctamente después de publicarlo. Una página también necesita cuidado técnico.',
@@ -96,7 +96,7 @@ export const SERVICES: Service[] = [
   },
   {
     id: 'seo-tecnico',
-    icon: '◎',
+    icon: 'search',
     title: 'Optimización SEO Básica y Técnica',
     subtitle: 'Estructura más clara para buscadores y usuarios',
     description: 'Preparamos tu sitio con una estructura técnica más sólida para que Google y tus clientes entiendan mejor qué ofreces.',
@@ -114,7 +114,7 @@ export const SERVICES: Service[] = [
   },
   {
     id: 'google-business',
-    icon: '⊕',
+    icon: 'pin',
     title: 'Presencia en Google Business',
     subtitle: 'Que tus clientes te encuentren cuando te buscan',
     description: 'Apoyamos en que la información básica de tu negocio sea más clara y accesible para clientes que te buscan en Google.',
@@ -132,7 +132,7 @@ export const SERVICES: Service[] = [
   },
   {
     id: 'sistemas-web',
-    icon: '⬢',
+    icon: 'database',
     title: 'Sistemas Web Personalizados',
     subtitle: 'Herramientas digitales hechas para tu forma de operar',
     description: 'Creamos herramientas web a medida para organizar procesos, información, solicitudes, registros o tareas internas de tu negocio.',
@@ -151,7 +151,7 @@ export const SERVICES: Service[] = [
   },
   {
     id: 'automatizacion',
-    icon: '⟳',
+    icon: 'workflow',
     title: 'Automatización de Procesos',
     subtitle: 'Menos tiempo en tareas repetitivas, más enfoque en tu negocio',
     description: 'Creamos soluciones para reducir tareas manuales repetitivas y organizar mejor la información y los flujos de trabajo internos.',
@@ -169,7 +169,7 @@ export const SERVICES: Service[] = [
   },
   {
     id: 'hosting-dominio',
-    icon: '◬',
+    icon: 'lock',
     title: 'Hosting, Dominio y SSL',
     subtitle: 'Todo lo técnico para que tu página esté publicada y segura',
     description: 'Configuramos lo necesario para que tu página esté publicada de forma profesional, con una dirección propia y certificado de seguridad.',

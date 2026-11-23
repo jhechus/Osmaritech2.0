@@ -1,0 +1,36 @@
+<div class="bar container">
+  <a routerLink="/" class="brand" aria-label="Osmaritech, inicio">
+    <img src="osmaritech_logo.png" alt="" width="44" height="44" class="mark" />
+    <span class="brand-text">
+      <strong>Osmaritech</strong>
+      <small class="mono">Desarrollo web</small>
+    </span>
+  </a>
+
+  <nav class="links" aria-label="Principal">
+    @for (item of nav; track item.path) {
+      <a [routerLink]="item.path" routerLinkActive="active" class="link">
+        <span class="mono idx">{{ item.index }}</span>{{ item.label }}
+      </a>
+    }
+  </nav>
+
+  <a routerLink="/contacto" class="btn btn-small cta" appMagnetic> <span class="pulse"></span> Cotizar proyecto </a>
+
+  <button class="burger" type="button" (click)="toggle()" [attr.aria-expanded]="open()" aria-label="Menú">
+    <app-icon [name]="open() ? 'close' : 'menu'" [size]="22" />
+  </button>
+</div>
+
+<div class="overlay" #overlay [class.show]="open()" [attr.aria-hidden]="!open()">
+  <nav class="m-nav" aria-label="Móvil">
+    <a routerLink="/" class="m-link"><span class="mono idx">00</span><span class="display">Inicio</span></a>
+    @for (item of nav; track item.path) {
+      <a [routerLink]="item.path" routerLinkActive="active" class="m-link">
+        <span class="mono idx">{{ item.index }}</span>
+        <span class="display">{{ item.label }}</span>
+      </a>
+    }
+  </nav>
+  <p class="mono m-foot">WhatsApp {{ wa.number }} · México</p>
+</div>

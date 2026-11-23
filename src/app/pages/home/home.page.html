@@ -1,0 +1,177 @@
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="hero-grid grid-bg" aria-hidden="true"></div>
+  <div class="orb orb-1" aria-hidden="true"></div>
+  <div class="orb orb-2" aria-hidden="true"></div>
+
+  <div class="container hero-inner">
+    <div class="hero-copy">
+      <p class="eyebrow" appReveal="left"><span class="idx">◆</span>Desarrollo web profesional · México</p>
+      <h1 class="display hero-title" appSplitWords>Tu negocio merece una presencia digital que <em>funcione de verdad.</em></h1>
+      <p class="lead hero-lead" appReveal [revealDelay]="0.4">
+        Creamos páginas web, landing pages y sistemas personalizados para negocios que quieren generar confianza, explicar mejor lo que hacen y facilitar que sus clientes los contacten.
+      </p>
+      <div class="hero-actions" appReveal [revealDelay]="0.55" [revealStagger]="0.1">
+        <a routerLink="/contacto" class="btn" appMagnetic data-reveal-item>Cotizar mi proyecto <app-icon name="arrow" [size]="18" /></a>
+        <a routerLink="/proyectos/chubot" class="btn btn-ghost" data-reveal-item><app-icon name="bot" [size]="18" /> Ver caso Chubot</a>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="hero-shot browser" appTilt="6">
+        <div class="browser-bar"><i></i><i></i><i></i><span>chubot · oficina virtual</span></div>
+        <img [src]="project.cover.src" [alt]="project.cover.alt" width="1689" height="1217" fetchpriority="high" />
+      </div>
+
+      <span class="float-chip c1"><app-icon name="search" [size]="15" /> Te encuentran en Google</span>
+      <span class="float-chip c2"><app-icon name="layout" [size]="15" /> Perfecta en celular</span>
+      <span class="float-chip c3"><app-icon name="lock" [size]="15" /> Sitio seguro</span>
+      <span class="float-chip c4"><app-icon name="whatsapp" [size]="15" /> WhatsApp</span>
+
+      <svg class="badge" viewBox="0 0 200 200" aria-hidden="true">
+        <defs><path id="circ" d="M100,100 m-78,0 a78,78 0 1,1 156,0 a78,78 0 1,1 -156,0" /></defs>
+        <text><textPath href="#circ">OSMARITECH · WEB · SISTEMAS · IA · </textPath></text>
+        <image href="osmaritech_logo.png" x="55" y="55" width="90" height="90" />
+      </svg>
+    </div>
+
+    <ul class="stats mono">
+      @for (s of stats; track s.label) {
+        <li><strong class="display">{{ s.value }}</strong>{{ s.label }}</li>
+      }
+    </ul>
+  </div>
+</section>
+
+<!-- ============ MARQUESINA ============ -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    @for (w of marquee; track $index) {
+      <span class="m-item">{{ w }} <i>◆</i></span>
+    }
+  </div>
+</div>
+
+<!-- ============ PROBLEMA ============ -->
+<section class="section container problem">
+  <div>
+    <p class="eyebrow" appReveal="left"><span class="idx">01</span>La realidad</p>
+    <p class="display scrub" appSplitWords="scrub">
+      Si un cliente te busca en internet, tu página habla antes de que tú lo hagas. Si no encuentra algo claro y profesional, se va sin escribirte, y nunca te enteras.
+    </p>
+    <a routerLink="/contacto" class="btn btn-ghost problem-cta" appReveal>Quiero mejorar mi presencia <app-icon name="arrow" [size]="16" /></a>
+  </div>
+  <div class="problem-cards">
+    @for (b of bad; track b) {
+      <div class="p-card bad card"><app-icon name="close" [size]="18" /><span>{{ b }}</span><i class="line"></i></div>
+    }
+    <div class="p-card good card"><app-icon name="check" [size]="18" /><span>Una página profesional que genera confianza 24/7</span></div>
+  </div>
+</section>
+
+<!-- ============ BENEFICIOS ============ -->
+<section class="section container">
+  <app-section-heading index="02" eyebrow="¿Por qué importa?" lead="Una buena página no solo muestra información: ordena tu mensaje, resuelve dudas y hace más fácil que te contacten.">
+    Lo que cambia con una página <em>profesional.</em>
+  </app-section-heading>
+  <div class="benefits" appReveal="up" [revealStagger]="0.08">
+    @for (b of benefits; track b.title; let i = $index) {
+      <article class="benefit card tilt" appTilt="8" data-reveal-item>
+        <span class="mono num">{{ (i + 1).toString().padStart(2, '0') }}</span>
+        <span class="b-icon"><app-icon [name]="b.icon" [size]="24" /></span>
+        <h3 class="display">{{ b.title }}</h3>
+        <p class="muted">{{ b.description }}</p>
+      </article>
+    }
+  </div>
+</section>
+
+<!-- ============ SERVICIOS (índice) ============ -->
+<section class="section container">
+  <app-section-heading index="03" eyebrow="Servicios" lead="Desde una landing simple hasta un sistema personalizado. Cada solución está pensada para que tu negocio se vea y funcione mejor en internet.">
+    ¿Qué necesita tu negocio <em>hoy?</em>
+  </app-section-heading>
+  <nav class="index" appReveal [revealStagger]="0.08" aria-label="Servicios destacados">
+    @for (s of featured; track s.id; let i = $index) {
+      <a class="index-row" [routerLink]="'/servicios'" [fragment]="s.id" data-reveal-item>
+        <span class="mono idx">{{ (i + 1).toString().padStart(2, '0') }}</span>
+        <span class="display title">{{ s.title }}</span>
+        <span class="text muted">{{ s.subtitle }}</span>
+        <span class="go"><app-icon name="arrow" [size]="18" /></span>
+      </a>
+    }
+  </nav>
+  <a routerLink="/servicios" class="btn btn-ghost more" appReveal>Ver los 10 servicios <app-icon name="arrow" [size]="16" /></a>
+</section>
+
+<!-- ============ PROYECTO DESTACADO ============ -->
+<section class="section container">
+  <app-section-heading index="04" eyebrow="Proyecto destacado" lead="Un sistema que ya está funcionando: un equipo de asistentes con inteligencia artificial que trabaja para el negocio, y nada sale sin la aprobación del dueño.">
+    De la idea a un sistema <em>que trabaja solo.</em>
+  </app-section-heading>
+
+  <a class="feature card" routerLink="/proyectos/chubot" appReveal="clip">
+    <div class="feature-shot"><img [src]="project.shots[0].src" [alt]="project.shots[0].alt" width="2160" height="1350" loading="lazy" /></div>
+    <div class="feature-body">
+      <div class="feature-head">
+        <img src="chubot-icon.png" alt="" width="56" height="56" class="logo" />
+        <div>
+          <h3 class="display">{{ project.name }} <em>· {{ project.codename }}</em></h3>
+          <p class="mono muted small">{{ project.category }} · {{ project.year }}</p>
+        </div>
+      </div>
+      <p class="muted">{{ project.summary }}</p>
+      <div class="tags">
+        @for (t of project.perks; track t) {
+          <app-chip>{{ t }}</app-chip>
+        }
+      </div>
+      <div class="metrics">
+        @for (m of project.metrics; track m.label) {
+          <div class="metric"><strong class="display" [appCounter]="m.value" [counterSuffix]="m.suffix ?? ''">{{ m.value }}{{ m.suffix }}</strong><span class="mono">{{ m.label }}</span></div>
+        }
+      </div>
+      <span class="feature-link">Ver caso de estudio <app-icon name="external" [size]="18" /></span>
+    </div>
+  </a>
+</section>
+
+<!-- ============ PROCESO ============ -->
+<section class="section container">
+  <app-section-heading index="05" eyebrow="Proceso" lead="Sin complicaciones técnicas de tu parte. Te explicamos cada paso y tienes visibilidad de todo el proceso.">
+    Así trabajamos <em>juntos.</em>
+  </app-section-heading>
+  <div class="steps">
+    <div class="steps-line" aria-hidden="true"><span></span></div>
+    <ol class="steps-list" appReveal [revealStagger]="0.12">
+      @for (s of steps; track s.number) {
+        <li data-reveal-item>
+          <span class="s-dot"><app-icon [name]="s.icon" [size]="20" /></span>
+          <span class="mono accent">{{ s.number }}</span>
+          <h3>{{ s.title }}</h3>
+          <p class="muted">{{ s.description }}</p>
+        </li>
+      }
+    </ol>
+  </div>
+  <a routerLink="/proceso" class="btn btn-ghost more" appReveal>Ver el proceso completo <app-icon name="arrow" [size]="16" /></a>
+</section>
+
+<!-- ============ PAQUETES (resumen) ============ -->
+<section class="section container">
+  <app-section-heading index="06" eyebrow="Paquetes" lead="Sin costos ocultos ni procesos complicados. Cotiza según lo que realmente necesita tu negocio.">
+    Opciones para <em>negocios reales.</em>
+  </app-section-heading>
+  <div class="packs" appReveal="scale" [revealStagger]="0.1">
+    @for (p of packages; track p.id) {
+      <a class="pack card tilt" routerLink="/paquetes" [fragment]="p.id" appTilt="8" data-reveal-item [class.hl]="p.highlighted">
+        @if (p.badge) { <span class="mono p-badge">{{ p.badge }}</span> }
+        <h3 class="display">{{ p.name }}</h3>
+        <p class="muted">{{ p.tagline }}</p>
+        <span class="p-go mono">Ver detalle <app-icon name="arrow" [size]="14" /></span>
+      </a>
+    }
+  </div>
+</section>
+
+<div class="container"><app-next-page title="Servicios" link="/servicios" /></div>
